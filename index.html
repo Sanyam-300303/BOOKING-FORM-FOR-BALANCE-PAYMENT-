@@ -174,7 +174,7 @@
     <div id="formContainer" style="display:none;">
       <h3>Booking Form</h3>
       <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSeIP3xr1UbQwwa42Fk8kqS-zB1Ujx9rhDK5QU3B4ldyuD9EKQ/viewform?usp=header"
+        src=""
         loading="lazy">
         Loading…
       </iframe>
@@ -197,8 +197,7 @@
       }
     }
 
-    // Updated ranges
-    
+    // Add valid booking ID ranges
     addBookingRange('ind', 153, 196);
     addBookingRange('shwh', 197, 288);
     addBookingRange('nhwh', 289, 315);
@@ -213,6 +212,7 @@
       const enteredId = document.getElementById("bookingId").value.trim().toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
       const formContainer = document.getElementById("formContainer");
+      const iframe = formContainer.querySelector("iframe");
 
       if (!validBookingIds.includes(enteredId)) {
         errorMsg.innerText = "❌ Invalid Booking ID. Please try again.";
@@ -220,6 +220,13 @@
       } else {
         errorMsg.innerText = "";
         formContainer.style.display = "block";
+
+        // Set the form URL with prefilled Booking ID
+        const entryId = "entry.1689621018";
+        const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeIP3xr1UbQwwa42Fk8kqS-zB1Ujx9rhDK5QU3B4ldyuD9EKQ/viewform";
+        const prefillUrl = `${baseUrl}?usp=pp_url&${entryId}=${encodeURIComponent(enteredId)}`;
+
+        iframe.src = prefillUrl;
       }
     }
   </script>
