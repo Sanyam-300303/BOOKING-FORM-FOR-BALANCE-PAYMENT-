@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sneh Prayas Committee Booking</title>
+
+  <!-- Traditional spiritual font -->
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Tiro Devanagari Hindi', serif;
+      background: url('https://www.kailash-yatra.org/images/ashtpad.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      text-align: center;
+      position: relative;
+    }
+
+    .greeting {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      font-size: 42px;
+      font-weight: 700;
+      background: linear-gradient(45deg, #f8c471, #fad7a0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 25px 30px;
+      border-radius: 8px;
+      width: 85%;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: 700;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #f5b041; /* soft saffron */
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d68910;
+    }
+
+    #errorMsg {
+      margin-top: 12px;
+      color: #c0392b;
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(45deg, #f8c471, #fad7a0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      letter-spacing: 1.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="greeting">
+    स्नेह प्रयास परिवार आपका हार्दिक स्वागत करता है 🙏
+  </div>
+
+  <div class="container">
+    <h2>Enter Booking ID to Access the Form</h2>
+    <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g., spc01)" />
+    <br/>
+    <button onclick="checkBookingId()">Submit</button>
+    <p id="errorMsg"></p>
+  </div>
+
+  <div class="footer">For Sneh Prayas Committee</div>
+
+  <script>
+    const validBookingIds = [];
+    for (let i = 1; i <= 52; i++) {
+      validBookingIds.push("spc" + (i < 10 ? "0" + i : i));
+    }
+
+    function checkBookingId() {
+      const entered = document.getElementById("bookingId").value.trim().toLowerCase();
+      const error = document.getElementById("errorMsg");
+      if (validBookingIds.includes(entered)) {
+        error.innerText = "";
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfa4JVsl8UrsiXwkDofkSUMUAy5JCLhde6m3tioh0_hxrh-PA/viewform", "_blank");
+      } else {
+        error.innerText = "❌ Invalid Booking ID. Please try again.";
+      }
+    }
+  </script>
+
+</body>
+</html>
