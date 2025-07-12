@@ -223,7 +223,7 @@
 
         // Set the form URL with prefilled Booking ID
         const entryId = "entry.1689621018";
-        const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeIP3xr1UbQwwa42Fk8kqS-zB1Ujx9rhDK5QU3B4ldyuD9EKQ/viewform";
+        const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeIP3xr1UbQwwa42Fk8kqS-zB1Ujx9rhDK5QU3B4ldyuD9EKQ/viewform?usp=header";
         const prefillUrl = `${baseUrl}?usp=pp_url&${entryId}=${encodeURIComponent(enteredId)}`;
 
         iframe.src = prefillUrl;
